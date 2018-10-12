@@ -1,0 +1,11 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-sonarts", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "interface-over-type-literal": false,
+    "no-var-requires": false,
+    "variable-name": false
+  },
+  "rulesDirectory": []
+}
