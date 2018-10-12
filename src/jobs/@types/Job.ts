@@ -1,0 +1,30 @@
+import { Concurrency } from './Concurrency';
+import { EnvironmentVariables } from './EnvironmentVariables';
+import { ExecutorConfig } from './ExecutorConfig';
+import { Processors } from './Processors';
+import { Tags } from './Tags';
+
+export type Job = {
+  name: string;
+  schedule: string;
+  timezone: string;
+  shell: boolean;
+  command: string;
+  environment_variables: EnvironmentVariables | null;
+  owner: string;
+  owner_email: string;
+  success_count: number;
+  error_count: number;
+  last_success: string;
+  last_error: string;
+  disabled: boolean;
+  tags: Tags | null;
+  retries: number;
+  dependent_jobs: string[] | null;
+  parent_job: string;
+  processors: Processors | null;
+  concurrency: Concurrency;
+  executor: string;
+  executor_config: ExecutorConfig;
+  status: string;
+};
