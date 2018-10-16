@@ -1,33 +1,47 @@
-version: "3.4"
+version: '3.4'
 services:
   dkron:
     image: dkron/dkron:v0.11.0
     depends_on:
-    - redis
+      - redis
     ports:
-    - 8080:8080
-    - 8946:8946
+      - 8080:8080
+      - 8946:8946
     environment:
-    - DKRON_BACKEND=redis
-    - DKRON_BACKEND_MACHINE=redis:6379
+      - DKRON_BACKEND=redis
+      - DKRON_BACKEND_MACHINE=redis:6379
     command: agent --server
 
   redis:
     image: redis
     ports:
-    - 6379
+      - 6379
     logging:
       driver: none
 
   start-dependencies:
     image: dadarek/wait-for-dependencies
-    command: rabbit:15672 redis:6379
+    command: redis:6379
     depends_on:
-    - redis
+      - redis
 
   start-services:
     image: dadarek/wait-for-dependencies
     command: dkron:8080
     depends_on:
-    - redis
-    - dkron
+      - redis
+      - dkron
+
+  integration-tests:
+    build:
+      context: .
+      target: builder
+    entrypoint: yarn test:integration
+    links:
+      - dkron:dkron
+    depends_on:
+      - dkron
+    volumes:
+      - .:/app
+    environment:
+      - DKRON_URL=http://dkron:8080

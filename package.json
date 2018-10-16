@@ -26,6 +26,7 @@
     "prepublish": "yarn build",
     "test": "jest --forceExit --detectOpenHandles",
     "test:cov": "yarn test --ci --coverage",
+    "test:integration": "INTEGRATION=1 yarn test -i",
     "test:watch": "yarn test --watch"
   },
   "husky": {
@@ -113,6 +114,7 @@
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "@types/jest": "^23.3.2",
+    "@types/node": "^10.12.0",
     "bluebird": "^3.5.2",
     "codecov": "^3.1.0",
     "dyson": "^2.0.1",

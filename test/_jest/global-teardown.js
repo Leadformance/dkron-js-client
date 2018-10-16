@@ -1,5 +1,7 @@
 const { stopDyson } = require('../dyson');
 
 module.exports = async () => {
-  stopDyson();
+  if (!process.env.INTEGRATION) {
+    return stopDyson();
+  }
 };
