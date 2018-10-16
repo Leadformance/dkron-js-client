@@ -1,6 +1,7 @@
 # dkron-js-client
 
 [![Build Status](https://travis-ci.org/Leadformance/dkron-js-client.svg?branch=master)](https://travis-ci.org/Leadformance/dkron-js-client)
+[![codecov](https://codecov.io/gh/Leadformance/dkron-js-client/branch/master/graph/badge.svg)](https://codecov.io/gh/Leadformance/dkron-js-client)
 
 > [DKron](https://dkron.io) REST API client for JavaScript
 

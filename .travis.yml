@@ -4,12 +4,18 @@ node_js:
 
 branches:
   only:
-  - master
+    - master
 
 cache:
   yarn: true
 
+env:
+  global:
+    - CODECOV_TOKEN="ea6016cb-b8d7-4f33-8faf-9e438d3e5cde"
+
 jobs:
   include:
     - stage: Unit tests
-      script: yarn ci-validate
+      script:
+        - yarn ci-validate
+        - codecov
