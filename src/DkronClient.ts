@@ -11,4 +11,8 @@ export class DkronClient implements IDkronClient {
   public getJob(jobName: string): PromiseLike<Job> {
     return this.jobs.getJob(jobName);
   }
+
+  public getJobs(): PromiseLike<Job[]> {
+    return this.jobs.getJobs();
+  }
 }

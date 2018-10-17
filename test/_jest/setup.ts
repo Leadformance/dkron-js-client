@@ -17,5 +17,13 @@ function setupIntegrationTests() {
     schedule: '0 0 1 * *',
   };
 
-  beforeAll(() => dkronClient.createJob(job1));
+  const job2 = {
+    executor: 'shell',
+    executor_config: {},
+    name: 'job_2',
+    schedule: '0 0 2 * *',
+  };
+
+  beforeAll(() =>
+    Promise.all([dkronClient.createJob(job1), dkronClient.createJob(job2)]));
 }

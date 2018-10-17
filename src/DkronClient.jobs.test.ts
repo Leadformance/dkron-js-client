@@ -76,4 +76,47 @@ describe('DkronClient - Jobs API', () => {
       });
     });
   });
+
+  describe('getJobs', () => {
+    it('return all jobs', async () => {
+      const expectedJob = {
+        command: '',
+        concurrency: 'allow',
+        dependent_jobs: null,
+        disabled: false,
+        environment_variables: null,
+        error_count: 0,
+        executor: 'shell',
+        executor_config: {},
+        name: 'job_1',
+        owner: '',
+        owner_email: '',
+        parent_job: '',
+        processors: null,
+        retries: 0,
+        schedule: '0 0 1 * *',
+        shell: false,
+        status: 'success',
+        success_count: 0,
+        tags: null,
+        timezone: '',
+      };
+
+      const results = await dkronClient.getJobs();
+      expect(results).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            ...expectedJob,
+            name: 'job_1',
+            schedule: '0 0 1 * *',
+          }),
+          expect.objectContaining({
+            ...expectedJob,
+            name: 'job_2',
+            schedule: '0 0 2 * *',
+          }),
+        ]),
+      );
+    });
+  });
 });

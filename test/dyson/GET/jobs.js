@@ -28,4 +28,13 @@ const job = {
   },
 };
 
-module.exports = [job];
+const jobs = {
+  path: '/v1/jobs',
+  cache: false,
+  template: [
+    () => ({ ...job.template, name: 'job_1', schedule: '0 0 1 * *' }),
+    () => ({ ...job.template, name: 'job_2', schedule: '0 0 2 * *' }),
+  ],
+};
+
+module.exports = [jobs, job];

@@ -13,4 +13,9 @@ export interface IJobsApi {
    * @return The job
    */
   getJob(jobName: string): PromiseLike<Job>;
+
+  /**
+   * @return All jobs
+   */
+  getJobs(): PromiseLike<Job[]>;
 }
