@@ -98,6 +98,7 @@
     "modulePaths": [
       "."
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test/_jest/setup.ts",
     "testEnvironment": "node",
     "testMatch": [
       "**/?(*).(test).ts?(x)"

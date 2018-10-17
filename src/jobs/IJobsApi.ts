@@ -7,4 +7,10 @@ export interface IJobsApi {
    * @return The created job
    */
   createJob(job: CreateJobRequest): PromiseLike<Job>;
+
+  /**
+   * @param jobName The name of the job
+   * @return The job
+   */
+  getJob(jobName: string): PromiseLike<Job>;
 }

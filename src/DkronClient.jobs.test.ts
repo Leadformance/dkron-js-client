@@ -46,4 +46,34 @@ describe('DkronClient - Jobs API', () => {
       });
     });
   });
+
+  describe('getJob', () => {
+    it('return the job', async () => {
+      const result = await dkronClient.getJob('job_1');
+      expect(result).toMatchObject({
+        command: '',
+        concurrency: 'allow',
+        dependent_jobs: null,
+        disabled: false,
+        environment_variables: null,
+        error_count: 0,
+        executor: 'shell',
+        executor_config: {
+          command: 'echo "Hello from job_1"',
+        },
+        name: 'job_1',
+        owner: '',
+        owner_email: '',
+        parent_job: '',
+        processors: null,
+        retries: 0,
+        schedule: '0 0 1 * *',
+        shell: false,
+        status: 'success',
+        success_count: 0,
+        tags: null,
+        timezone: '',
+      });
+    });
+  });
 });
