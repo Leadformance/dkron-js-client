@@ -1,6 +1,7 @@
 import { Concurrency } from './Concurrency';
 import { EnvironmentVariables } from './EnvironmentVariables';
 import { ExecutorConfig } from './ExecutorConfig';
+import { JobStatus } from './JobStatus';
 import { Processors } from './Processors';
 import { Tags } from './Tags';
 
@@ -26,5 +27,5 @@ export type Job = {
   concurrency: Concurrency;
   executor: string;
   executor_config: ExecutorConfig;
-  status: string;
+  status: JobStatus;
 };
