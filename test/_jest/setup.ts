@@ -24,6 +24,19 @@ function setupIntegrationTests() {
     schedule: '0 0 2 * *',
   };
 
+  const outdatedJob = {
+    executor: 'shell',
+    executor_config: {
+      command: 'echo "Hello from outdated-job"',
+    },
+    name: 'outdated-job',
+    schedule: '0 0 1 * *',
+  };
+
   beforeAll(() =>
-    Promise.all([dkronClient.createJob(job1), dkronClient.createJob(job2)]));
+    Promise.all([
+      dkronClient.createJob(job1),
+      dkronClient.createJob(job2),
+      dkronClient.createJob(outdatedJob),
+    ]));
 }

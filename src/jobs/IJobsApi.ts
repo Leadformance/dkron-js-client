@@ -18,4 +18,10 @@ export interface IJobsApi {
    * @return All jobs
    */
   getJobs(): PromiseLike<Job[]>;
+
+  /**
+   * @param jobName The name of the job to remove
+   * @return The removed job
+   */
+  removeJob(jobName: string): PromiseLike<Job>;
 }

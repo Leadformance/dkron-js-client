@@ -86,4 +86,19 @@ describe('DkronClient - Jobs API', () => {
       );
     });
   });
+
+  describe('removeJob', () => {
+    it('return the removed job', async () => {
+      const result = await dkronClient.removeJob('outdated-job');
+      expect(result).toMatchObject({
+        ...BASE_EXPECTED_JOB,
+        executor_config: {
+          command: 'echo "Hello from outdated-job"',
+        },
+        name: 'outdated-job',
+        schedule: '0 0 1 * *',
+        status: '',
+      });
+    });
+  });
 });

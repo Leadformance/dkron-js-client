@@ -27,4 +27,10 @@ export class JobsApi implements IJobsApi {
   public getJobs(): PromiseLike<Job[]> {
     return axios.get(JobsApi.ROUTE.jobs(this.config)).then(res => res.data);
   }
+
+  public removeJob(jobName: string): PromiseLike<Job> {
+    return axios
+      .delete(JobsApi.ROUTE.job(this.config, jobName))
+      .then(res => res.data);
+  }
 }
