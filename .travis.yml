@@ -16,7 +16,8 @@ cache:
 
 env:
   global:
-    - CODECOV_TOKEN="ea6016cb-b8d7-4f33-8faf-9e438d3e5cde"
+    # Codecov token
+    - secure: 'M5is9i1qEyS07aLK89ewDsnGmLG5+zTkZWVq4TPp6FHIfwBVwI9x+OKMxczeAgl2WO1nfcpto/RwibqRZT0xC/CCPY5swhbXExM4deS+3397AGPWhz5rJHUhRHLfhJkOajg8/UmBkyYCJnXMgMYbs3F1+JMHt13ijMzc74gPJJz5p2Yu5/PtsNEjQ9mjEcTefwQc56MhE+rrsKX1LIdE+BxoHdxjaCf2SJJy85TRoN6YAiKh2pT2VhA6qM+ntrwt1ICErbNtH+vECVtho1Xq8orODujfO3ZHlqsi0Y/Q9Z1shyGSPX/A7m5Vd0l8XdfpeDCkHcvPUoEckVYiRAKC1BjQqQ8Np/rrNDzA4XU7odDTbEzrQGfDIPRpEaYKNOHkL7VgF06ps/UFDdtSoGnEN+Cr+HFRQy2/lAqAqjC8cxsWQir+b3ZPzsfqBJhCanauZrUYk1KQ9HcWiBcywIRzshfJ45ZKGqcjjL6B4HgeNMygPTBhDC4rdYsPg9CJ+zaWGpl57fnemCrdvSQuSmldm6cJkDpNXLqM99MzhesiPqjwaKAp2GEcizaQZf5dWz+YmXHWRbcYvPfofUn6On53+pXtnzPp2Y5jRSKZvalZLKPv1P3A0xSXQYvzF5AyEyhqZBo2OCzgk7kZT3z89Of9540dqLdthN7FQTXqeN5grOU='
 
 jobs:
   include:
