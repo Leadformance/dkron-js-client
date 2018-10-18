@@ -1,4 +1,9 @@
-import { createDkronClient, CreateJobRequest, IDkronClient } from 'src';
+import {
+  createDkronClient,
+  CreateJobRequest,
+  IDkronClient,
+  UpdateJobRequest,
+} from 'src';
 import { newConfig } from 'test/fixtures';
 
 describe('DkronClient - Jobs API', () => {
@@ -97,6 +102,31 @@ describe('DkronClient - Jobs API', () => {
         },
         name: 'outdated-job',
         schedule: '0 0 1 * *',
+        status: '',
+      });
+    });
+  });
+
+  describe('updateJob', () => {
+    it('return the updated job', async () => {
+      const body: UpdateJobRequest = {
+        executor: 'shell',
+        executor_config: {
+          command: 'echo "Updated hello world"',
+        },
+        name: 'updated-job',
+        schedule: '@every 1h',
+      };
+
+      const result = await dkronClient.updateJob(body);
+      expect(result).toMatchObject({
+        ...BASE_EXPECTED_JOB,
+        executor: 'shell',
+        executor_config: {
+          command: 'echo "Updated hello world"',
+        },
+        name: 'updated-job',
+        schedule: '@every 1h',
         status: '',
       });
     });

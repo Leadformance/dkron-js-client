@@ -1,5 +1,5 @@
 import { IDkronClient } from './IDkronClient';
-import { CreateJobRequest, IJobsApi, Job } from './jobs';
+import { CreateJobRequest, IJobsApi, Job, UpdateJobRequest } from './jobs';
 
 export class DkronClient implements IDkronClient {
   constructor(private readonly jobs: IJobsApi) {}
@@ -18,5 +18,9 @@ export class DkronClient implements IDkronClient {
 
   public removeJob(jobName: string): PromiseLike<Job> {
     return this.jobs.removeJob(jobName);
+  }
+
+  public updateJob(job: UpdateJobRequest): PromiseLike<Job> {
+    return this.jobs.updateJob(job);
   }
 }

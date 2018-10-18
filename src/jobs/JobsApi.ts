@@ -33,4 +33,10 @@ export class JobsApi implements IJobsApi {
       .delete(JobsApi.ROUTE.job(this.config, jobName))
       .then(res => res.data);
   }
+
+  public updateJob(job: CreateJobRequest): PromiseLike<Job> {
+    return axios
+      .patch(JobsApi.ROUTE.jobs(this.config), job)
+      .then(res => res.data);
+  }
 }

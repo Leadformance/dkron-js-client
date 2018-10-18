@@ -6,3 +6,4 @@ export * from './Job';
 export * from './JobStatus';
 export * from './Processors';
 export * from './Tags';
+export * from './UpdateJobRequest';

@@ -1,4 +1,4 @@
-import { CreateJobRequest } from './@types';
+import { CreateJobRequest, UpdateJobRequest } from './@types';
 import { Job } from './@types';
 
 export interface IJobsApi {
@@ -24,4 +24,10 @@ export interface IJobsApi {
    * @return The removed job
    */
   removeJob(jobName: string): PromiseLike<Job>;
+
+  /**
+   * @param job The job to update
+   * @return The updated job
+   */
+  updateJob(job: UpdateJobRequest): PromiseLike<Job>;
 }
