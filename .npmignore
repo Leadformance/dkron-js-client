@@ -1,0 +1,8 @@
+.idea
+dist/test
+*.test.*
+
+.travis.yml
+docker-compose.yaml
+Dockerfile
+run-integration-test.sh
