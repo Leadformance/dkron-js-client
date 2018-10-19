@@ -24,6 +24,32 @@ dkronClient
   });
 ```
 
+## Release
+
+The publishing is automated using Travis. However it is triggered on building a
+tag. Therefore you need to create a tag to be able to publish a new version in
+the npm registry.
+
+To create a tag, run the following command
+
+```bash
+npm version -m 'release: v%s' patch|minor|major
+```
+
+Push all of our changes to Github:
+
+```bash
+git push origin master
+```
+
+This will start a build on Travis CI, but it will not publish.
+
+To publish the package we have to push the git tag:
+
+```bash
+git push --tags
+```
+
 ## LICENSE
 
 [MIT](LICENSE)
