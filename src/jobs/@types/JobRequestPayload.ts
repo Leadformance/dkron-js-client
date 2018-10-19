@@ -4,7 +4,7 @@ import { ExecutorConfig } from './ExecutorConfig';
 import { Processors } from './Processors';
 import { Tags } from './Tags';
 
-export type CreateJobRequest = {
+export type JobRequestPayload = {
   name: string;
   schedule: string;
   timezone?: string;

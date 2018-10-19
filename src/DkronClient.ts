@@ -1,10 +1,10 @@
 import { IDkronClient } from './IDkronClient';
-import { CreateJobRequest, IJobsApi, Job, UpdateJobRequest } from './jobs';
+import { IJobsApi, Job, JobRequestPayload } from './jobs';
 
 export class DkronClient implements IDkronClient {
   constructor(private readonly jobs: IJobsApi) {}
 
-  public createJob(job: CreateJobRequest): PromiseLike<Job> {
+  public createJob(job: JobRequestPayload): PromiseLike<Job> {
     return this.jobs.createJob(job);
   }
 
@@ -20,7 +20,7 @@ export class DkronClient implements IDkronClient {
     return this.jobs.removeJob(jobName);
   }
 
-  public updateJob(job: UpdateJobRequest): PromiseLike<Job> {
+  public updateJob(job: JobRequestPayload): PromiseLike<Job> {
     return this.jobs.updateJob(job);
   }
 }

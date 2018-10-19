@@ -1,9 +1,4 @@
-import {
-  createDkronClient,
-  CreateJobRequest,
-  IDkronClient,
-  UpdateJobRequest,
-} from 'src';
+import { createDkronClient, IDkronClient, JobRequestPayload } from 'src';
 import { newConfig } from 'test/fixtures';
 
 describe('DkronClient - Jobs API', () => {
@@ -36,7 +31,7 @@ describe('DkronClient - Jobs API', () => {
 
   describe('createJob', () => {
     it('creates the job', async () => {
-      const body: CreateJobRequest = {
+      const body: JobRequestPayload = {
         executor: 'shell',
         executor_config: {
           command: 'echo "Hello from parent"',
@@ -109,7 +104,7 @@ describe('DkronClient - Jobs API', () => {
 
   describe('updateJob', () => {
     it('return the updated job', async () => {
-      const body: UpdateJobRequest = {
+      const body: JobRequestPayload = {
         executor: 'shell',
         executor_config: {
           command: 'echo "Updated hello world"',

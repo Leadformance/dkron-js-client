@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Configuration } from '../@types';
-import { CreateJobRequest, Job } from './@types';
+import { Job, JobRequestPayload } from './@types';
 import { IJobsApi } from './IJobsApi';
 
 export class JobsApi implements IJobsApi {
@@ -12,7 +12,7 @@ export class JobsApi implements IJobsApi {
 
   constructor(private readonly config: Configuration) {}
 
-  public createJob(body: CreateJobRequest): PromiseLike<Job> {
+  public createJob(body: JobRequestPayload): PromiseLike<Job> {
     return axios
       .post(JobsApi.ROUTE.jobs(this.config), body)
       .then(res => res.data);
@@ -34,7 +34,7 @@ export class JobsApi implements IJobsApi {
       .then(res => res.data);
   }
 
-  public updateJob(job: CreateJobRequest): PromiseLike<Job> {
+  public updateJob(job: JobRequestPayload): PromiseLike<Job> {
     return axios
       .patch(JobsApi.ROUTE.jobs(this.config), job)
       .then(res => res.data);
