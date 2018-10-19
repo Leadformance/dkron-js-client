@@ -1,6 +1,6 @@
 {
   "name": "dkron-js-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "DKron JS client",
   "main": "dist/index.js",
   "type": "dist/index.d.ts",
