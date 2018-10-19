@@ -28,3 +28,15 @@ jobs:
     - stage: Integration tests
       script:
         - ./run-integration-test.sh
+    - stage: npm release
+      node_js: 8
+      if: tag IS present
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        email: 'dev@leadformance.com'
+        api_key:
+          secure: 'YZse9VhBv+Is2BhpcVA58/wBBmVqbzP5LyRvR8nLknwO0T1NUaQ44i2mXieHVRSomiV091aTCTcLICy6MSSyzmnLevMm8dg6cad/ns8/kw4Uj4ods1XZrKraUt5sXe6T9kMu+ofpRpBUonelfsqxq3J+FyA3D7bbTUBr3fhC6pO0g1QcLuepUXAFQTh060stHWhe620aWOWy1A2AIJ3kS8Hg7svWlPQOr7MAkHdqIGnovZe00tPygOgwGUw6PtI1+dZb9VXrzieC0BqDOIAZh5oLSm1jCM7dRCr8ENm7lTUSuLKhil2WDZfSLlXLbwWh6Jb2812sTmhM4tfTuM7WzBGosI8fXRLHzZmG3iCmJPJB3HKCzIwQAW5FiGmqMPuy/TFR0SOJhbIUDx2JEjkeciX8RcBTvW4yrReH3X0yXv+bW3KyocRJ/DE1+Bvo+q6oPq4Vq8SaaeanRsBNmQRsU3ZXUCjrkuN/LtEYx50geeh0AO4DApdiR8zB9EkNrtdVcL0UpZKNYw5qh1QJfzKQ089w1MLbwHulq5GjE5aGWbseynbEOKmCv906/i59uqzaoCDgyjKoIBlupcbTahZSl0X0oolWRLwH7QynGodID7oUzm7ceLZyhK3zpVIOTOP/dKXm1Qe5seHFUJJoZTr8JWm9ATaS07zxDXtM3pca0lA='
+        on:
+          tags: true
+        skip_cleanup: true
