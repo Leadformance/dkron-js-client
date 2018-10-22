@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Configuration } from '../@types';
-import { Job, JobRequestPayload } from './@types';
+import { JobRequestPayload } from './@types';
 import { IJobsApi } from './IJobsApi';
 
 export class JobsApi implements IJobsApi {
@@ -12,30 +12,32 @@ export class JobsApi implements IJobsApi {
 
   constructor(private readonly config: Configuration) {}
 
-  public createJob(body: JobRequestPayload): PromiseLike<Job> {
-    return axios
+  public async createJob(body: JobRequestPayload) {
+    return await axios
       .post(JobsApi.ROUTE.jobs(this.config), body)
       .then(res => res.data);
   }
 
-  public getJob(jobName: string): PromiseLike<Job> {
-    return axios
+  public async getJob(jobName: string) {
+    return await axios
       .get(JobsApi.ROUTE.job(this.config, jobName))
       .then(res => res.data);
   }
 
-  public getJobs(): PromiseLike<Job[]> {
-    return axios.get(JobsApi.ROUTE.jobs(this.config)).then(res => res.data);
+  public async getJobs() {
+    return await axios
+      .get(JobsApi.ROUTE.jobs(this.config))
+      .then(res => res.data);
   }
 
-  public removeJob(jobName: string): PromiseLike<Job> {
-    return axios
+  public async removeJob(jobName: string) {
+    return await axios
       .delete(JobsApi.ROUTE.job(this.config, jobName))
       .then(res => res.data);
   }
 
-  public updateJob(job: JobRequestPayload): PromiseLike<Job> {
-    return axios
+  public async updateJob(job: JobRequestPayload) {
+    return await axios
       .patch(JobsApi.ROUTE.jobs(this.config), job)
       .then(res => res.data);
   }

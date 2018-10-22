@@ -6,28 +6,28 @@ export interface IJobsApi {
    * @param job The job to create
    * @return The created job
    */
-  createJob(job: JobRequestPayload): PromiseLike<Job>;
+  createJob(job: JobRequestPayload): Promise<Job>;
 
   /**
    * @param jobName The name of the job
    * @return The job
    */
-  getJob(jobName: string): PromiseLike<Job>;
+  getJob(jobName: string): Promise<Job>;
 
   /**
    * @return All jobs
    */
-  getJobs(): PromiseLike<Job[]>;
+  getJobs(): Promise<Job[]>;
 
   /**
    * @param jobName The name of the job to remove
    * @return The removed job
    */
-  removeJob(jobName: string): PromiseLike<Job>;
+  removeJob(jobName: string): Promise<Job>;
 
   /**
    * @param job The job to update
    * @return The updated job
    */
-  updateJob(job: JobRequestPayload): PromiseLike<Job>;
+  updateJob(job: JobRequestPayload): Promise<Job>;
 }

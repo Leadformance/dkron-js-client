@@ -1,26 +1,26 @@
 import { IDkronClient } from './IDkronClient';
-import { IJobsApi, Job, JobRequestPayload } from './jobs';
+import { IJobsApi, JobRequestPayload } from './jobs';
 
 export class DkronClient implements IDkronClient {
   constructor(private readonly jobs: IJobsApi) {}
 
-  public createJob(job: JobRequestPayload): PromiseLike<Job> {
-    return this.jobs.createJob(job);
+  public async createJob(job: JobRequestPayload) {
+    return await this.jobs.createJob(job);
   }
 
-  public getJob(jobName: string): PromiseLike<Job> {
-    return this.jobs.getJob(jobName);
+  public async getJob(jobName: string) {
+    return await this.jobs.getJob(jobName);
   }
 
-  public getJobs(): PromiseLike<Job[]> {
-    return this.jobs.getJobs();
+  public async getJobs() {
+    return await this.jobs.getJobs();
   }
 
-  public removeJob(jobName: string): PromiseLike<Job> {
-    return this.jobs.removeJob(jobName);
+  public async removeJob(jobName: string) {
+    return await this.jobs.removeJob(jobName);
   }
 
-  public updateJob(job: JobRequestPayload): PromiseLike<Job> {
-    return this.jobs.updateJob(job);
+  public async updateJob(job: JobRequestPayload) {
+    return await this.jobs.updateJob(job);
   }
 }
